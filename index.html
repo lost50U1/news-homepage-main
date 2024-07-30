@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>News homepage</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- tailwind css -->
+    <link href="./css/styles.css" rel="stylesheet" />
+    <!-- alpine js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body
+    class="font-inter bg-offwhite grid min-h-screen place-items-center py-6 md:py-14"
+  >
+    <div
+      :class="{ 'overflow-hidden max-h-screen': mobileMenu}"
+      class="relative"
+      x-data="{ mobileMenu: false }"
+    >
+      <header
+        class="flex justify-between container mx-auto px-4 md:px-[5.625rem] mb-6 md:mb-10"
+      >
+        <div>
+          <img
+            src="assets/images/logo.svg"
+            alt="logo"
+            class="w-[45px] h-auto"
+          />
+        </div>
+        <nav class="hidden sm:flex">
+          <ul class="flex gap-10 text-darkgrayishblue">
+            <li class="cursor-pointer hover:text-softred focus:text-softred">
+              <a href="#">Home</a>
+            </li>
+            <li
+              class="hover:cursor-pointer hover:text-softred focus:text-softred"
+            >
+              <a href="#">New</a>
+            </li>
+            <li
+              class="hover:cursor-pointer hover:text-softred focus:text-softred"
+            >
+              <a href="#">Popular</a>
+            </li>
+            <li
+              class="hover:cursor-pointer hover:text-softred focus:text-softred"
+            >
+              <a href="#">Trending</a>
+            </li>
+            <li
+              class="hover:cursor-pointer hover:text-softred focus:text-softred"
+            >
+              <a href="#">Categories</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="block sm:hidden">
+          <button @click="mobileMenu = true">
+            <img src="assets/images/icon-menu.svg" alt="" />
+          </button>
+        </div>
+      </header>
+      <!-- mobile menu  -->
+      <div
+        class="pointer-events-none min-h-screen sm:hidden flex justify-end bg-black bg-opacity-70 opacity-0 transition-opacity fixed top-0 right-0 w-full"
+        :class="{ 'opacity-100 pointer-events-auto': mobileMenu }"
+      >
+        <nav class="bg-offwhite min-h-screen w-2/3 px-6 pt-6">
+          <div class="flex justify-end mb-20">
+            <button @click="mobileMenu = false">
+              <img src="assets/images/icon-menu-close.svg" alt="" />
+            </button>
+          </div>
+          <ul
+            class="flex flex-col gap-10 text-verydarkblue font-bold text-base"
+          >
+            <li
+              class="hover:cursor-pointer hover:text-softred focus:text-softred"
+            >
+              <a href="#">Home</a>
+            </li>
+            <li
+              class="hover:cursor-pointer hover:text-softred focus:text-softred"
+            >
+              <a href="#">New</a>
+            </li>
+            <li
+              class="hover:cursor-pointer hover:text-softred focus:text-softred"
+            >
+              <a href="#">Popular</a>
+            </li>
+            <li
+              class="hover:cursor-pointer hover:text-softred focus:text-softred"
+            >
+              <a href="#">Trending</a>
+            </li>
+            <li
+              class="hover:cursor-pointer hover:text-softred focus:text-softred"
+            >
+              <a href="#">Categories</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- main content  -->
+      <main class="container mx-auto px-4 md:px-[5.625rem]">
+        <div class="md:grid md:grid-cols-3 md:gap-8">
+          <div class="mb-16 md:grid md:col-span-2">
+            <div class="mb-6">
+              <a class="hover:cursor-pointer focus:cursor-pointer" href="#">
+                <img
+                  class="block md:hidden"
+                  src="assets/images/image-web-3-mobile.jpg"
+                  alt=""
+                />
+                <img
+                  class="hidden md:block"
+                  src="assets/images/image-web-3-desktop.jpg"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="md:grid md:grid-cols-2 md:gap-9">
+              <div class="w-3/4 md:w-4/5 mb-6">
+                <h1 class="font-extrabold text-3xl md:text-5xl">
+                  The Bright Future of Web 3.0?
+                </h1>
+              </div>
+              <div>
+                <p class="text-[15px] mb-6">
+                  We dive into the next evolution of the web that claims to put
+                  the power of the platforms back into the hands of the people.
+                  But is it really fulfilling its promise?
+                </p>
+                <button
+                  class="bg-softred uppercase py-5 font-bold px-9 tracking-[0.375rem] text-[15px] hover:text-white hover:cursor-pointer focus:text-white hover:bg-verydarkblue focus:bg-verydarkblue"
+                >
+                  Read more
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="md:col-span-1 bg-verydarkblue text-white px-5 py-6 mb-16">
+            <h2 class="text-softorange font-extrabold text-3xl mb-8">New</h2>
+            <h3
+              class="font-bold mb-3 hover:text-softorange hover:cursor-pointer focus:text-softorange"
+            >
+              Hydrogen VS Electric Cars
+            </h3>
+            <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+            <hr class="my-6" />
+            <h3
+              class="font-bold mb-3 hover:text-softorange hover:cursor-pointer focus:text-softorange"
+            >
+              The Downsides of AI Artistry
+            </h3>
+            <p>
+              What are the possible adverse effects of on-demand AI image
+              generation?
+            </p>
+            <hr class="my-6" />
+            <h3
+              class="font-bold mb-3 hover:text-softorange hover:cursor-pointer focus:text-softorange"
+            >
+              Is VC Funding Drying Up?
+            </h3>
+            <p>
+              Private funding by VC firms is down 50% YOY. We take a look at
+              what that means.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-8">
+          <div class="flex gap-6">
+            <img
+              class="w-[100px] h-auto"
+              src="assets/images/image-retro-pcs.jpg"
+              alt=""
+            />
+            <div>
+              <h4 class="text-softred text-2xl font-bold">01</h4>
+              <h5
+                class="font-bold hover:text-softred focus:text-softred hover:cursor-pointer focus:cursor-pointer"
+              >
+                Reviving Retro PCs
+              </h5>
+              <p>What happens when old PCs are given modern upgrades?</p>
+            </div>
+          </div>
+          <div class="flex gap-6">
+            <img
+              class="w-[100px] h-auto"
+              src="assets/images/image-top-laptops.jpg"
+              alt=""
+            />
+            <div>
+              <h4 class="text-softred text-2xl font-bold">02</h4>
+              <h5
+                class="font-bold hover:text-softred focus:text-softred hover:cursor-pointer focus:cursor-pointer"
+              >
+                Top 10 Laptops of 2022
+              </h5>
+              <p>Our best picks for various needs and budgets.</p>
+            </div>
+          </div>
+          <div class="flex gap-6">
+            <img
+              class="w-[100px] h-auto"
+              src="assets/images/image-gaming-growth.jpg"
+              alt=""
+            />
+            <div>
+              <h4 class="text-softred text-2xl font-bold">03</h4>
+              <h5
+                class="font-bold hover:text-softred focus:text-softred hover:cursor-pointer focus:cursor-pointer"
+              >
+                The Growth of Gaming
+              </h5>
+              <p>How the pandemic has sparked fresh opportunities.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
